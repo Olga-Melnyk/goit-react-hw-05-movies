@@ -1,44 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { fetchTrending } from '../services/getMovies';
 
 const Home = () => {
-  const [movies] = useState([
-    'movie-1',
-    'movie-2',
-    'movie-3',
-    'movie-4',
-    'movie-5',
-  ]);
+  const [movies, setMovies] = useState([]);
 
-  //   const { movieId } = useParams();
+  useEffect(() => {
+    async function fetchMovies() {
+      const data = await fetchTrending();
+      setMovies(data.results);
+    }
+    fetchMovies();
+  }, []);
 
   const location = useLocation();
-
-  //   const [searchParams, setSearchParams] = useSearchParams();
-
-  //   const movieId = searchParams.get('movieId') ?? '';
-
-  // useEffect(() => {}, [])
-
-  //   const updateQueryString = e => {
-  //     if (e.target.value === '') {
-  //       return setSearchParams({});
-  //     }
-  //     setSearchParams({ movieId: e.target.value });
-  //   };
-
-  //   const visibleMovies = movies.filter(movie => movie.includes(movieId));
 
   return (
     <div>
       <h1>Trending today</h1>
-      {/* <input type="text" value={movieId} onChange={updateQueryString} /> */}
       <ul>
         {movies.map(movie => {
           return (
-            <li key={movie}>
-              <Link to={`movies/${movie}`} state={{ from: location }}>
-                {movie}
+            <li key={movie.id}>
+              <Link to={`movies/${movie.id}`} state={{ from: location }}>
+                {movie.title}
               </Link>
             </li>
           );

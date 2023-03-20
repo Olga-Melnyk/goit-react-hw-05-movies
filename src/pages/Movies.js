@@ -43,16 +43,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-//   useEffect(() => {
-//     // Тут виконуємо асинхронну операцію,
-//     // наприклад HTTP-запит за інформацією про користувача
-//     if (username === '') return;
-
-//     async function fetchMovies() {
-//       const movies = await FakeAPI.getMovies(query);
-//       setMovies(movies);
-//     }
-
-//     fetchMovies();
-//   }, [query]);
