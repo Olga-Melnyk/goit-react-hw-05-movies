@@ -16,3 +16,13 @@ export async function fetchMovieDetails(movieId) {
 
   return movie.data;
 }
+
+export async function fetchMovieCast(movieId) {
+  const movie = await axios.get(
+    `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+
+  return movie.data;
+}
+
+// https://api.themoviedb.org/3/movie/881164/credits?api_key=51114562faac57108ae3113fba230ec4&language=en-US
