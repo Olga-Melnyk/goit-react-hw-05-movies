@@ -25,4 +25,10 @@ export async function fetchMovieCast(movieId) {
   return movie.data;
 }
 
-// https://api.themoviedb.org/3/movie/881164/credits?api_key=51114562faac57108ae3113fba230ec4&language=en-US
+export async function fetchMovieReviews(movieId) {
+  const movie = await axios.get(
+    `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
+  );
+
+  return movie.data;
+}
