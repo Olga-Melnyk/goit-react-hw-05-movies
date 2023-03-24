@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchMovieReviews } from '../services/getMovies';
+import { fetchMovieReviews } from '../../services/getMovies';
+
+import { ReviewsNotFound } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState({});
@@ -28,7 +30,9 @@ const Reviews = () => {
     <>
       {error && <div>Something wrong</div>}
       {results.length < 1 && (
-        <div>We don't have any reviews for this movie</div>
+        <ReviewsNotFound>
+          We don't have any reviews for this movie
+        </ReviewsNotFound>
       )}
       {reviewsResults && (
         <ul>

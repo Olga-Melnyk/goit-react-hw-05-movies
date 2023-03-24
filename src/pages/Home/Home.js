@@ -37,7 +37,7 @@ const Home = () => {
           );
         })}
       </MoviesList>
-      <Toaster toastOptions={{ duration: 1500 }} />
+      <Toaster toastOptions={{ duration: 2500 }} />
     </div>
   );
 };
