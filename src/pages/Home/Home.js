@@ -4,13 +4,7 @@ import { fetchTrending } from '../../services/getMovies';
 import { Toaster } from 'react-hot-toast';
 import { toast } from 'react-hot-toast';
 
-import {
-  TrendingTitle,
-  MoviesList,
-  // MovieItem,
-  MovieTitle,
-  LinkItem,
-} from './Home.styled';
+import { TrendingTitle, MoviesList, MovieTitle, LinkItem } from './Home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -41,7 +35,6 @@ const Home = () => {
             poster = `https://www.wallpaper-box.com/smartphone/wp-content/uploads/2015/01/Abstract-Connected-Lines-3D-Render-iPhone-6-Plus-HD-Wallpaper.jpg`;
           }
           return (
-            // <MovieItem key={movie.id}>
             <LinkItem
               key={movie.id}
               to={`movies/${movie.id}`}
@@ -49,9 +42,7 @@ const Home = () => {
             >
               <img src={poster} width="400" alt={movie.title} />
               <MovieTitle>{movie.title}</MovieTitle>
-              {/* {movie.title} */}
             </LinkItem>
-            // </MovieItem>
           );
         })}
       </MoviesList>
