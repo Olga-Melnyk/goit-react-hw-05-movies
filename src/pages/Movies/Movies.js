@@ -9,7 +9,7 @@ import {
   MoviesInput,
   MoviesButton,
   MoviesList,
-  MovieItem,
+  MovieTitle,
   LinkItem,
 } from './Movies.styled';
 
@@ -80,12 +80,21 @@ const Movies = () => {
       {movies && (
         <MoviesList>
           {movies.map(movie => {
+            let poster;
+            if (movie.poster_path) {
+              poster = `https://image.tmdb.org/t/p/w400/${movie.poster_path}`;
+            } else {
+              poster = `https://www.wallpaper-box.com/smartphone/wp-content/uploads/2015/01/Abstract-Connected-Lines-3D-Render-iPhone-6-Plus-HD-Wallpaper.jpg`;
+            }
             return (
-              <MovieItem key={movie.id}>
-                <LinkItem to={`${movie.id}`} state={{ from: location }}>
-                  {movie.title}
-                </LinkItem>
-              </MovieItem>
+              <LinkItem
+                key={movie.id}
+                to={`${movie.id}`}
+                state={{ from: location }}
+              >
+                <img src={poster} width="400" alt={movie.title} />
+                <MovieTitle>{movie.title}</MovieTitle>
+              </LinkItem>
             );
           })}
         </MoviesList>

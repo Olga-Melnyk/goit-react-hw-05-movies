@@ -19,6 +19,8 @@ export const LinkBack = styled(Link)`
   :focus {
     background-color: white;
     color: black;
+    scale: calc(1.03);
+    box-shadow: 0px 0px 15px 6px black;
   }
 `;
 
@@ -43,8 +45,10 @@ export const LinkItem = styled(Link)`
   :hover {
     color: white;
     background-color: grey;
+    scale: calc(1.03);
+    box-shadow: 0px 0px 15px 6px black;
   }
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 40px;
   }
 `;
